@@ -1,0 +1,49 @@
+<div class="narrow">
+  {{#if isCredentials}}
+    <h2>Sign in to GitHub</h2>
+  {{else if isOTP}}
+    <h2>Two-factor authentication</h2>
+  {{/if}}
+
+  {{#if submit.last.isError}}
+    <p class="error">{{submit.last.error.message}}</p>
+  {{/if}}
+
+  <div class="box">
+    <form>
+      {{#if isCredentials}}
+        <label>
+          Username or email address
+          {{input value=username}}
+        </label>
+
+        <label>
+           Password
+           {{input type="password" value=password}}
+         </label>
+
+        {{#if submit.isIdle}}
+          <button class="primary" disabled={{disableSignIn}} {{action (perform submit)}}>Sign in</button>
+        {{else}}
+          <button class="primary" disabled>Signing in...</button>
+        {{/if}}
+      {{else if isOTP}}
+        <p>
+          <label>
+            Authentication code
+            {{input value=otp}}
+          </label>
+        </p>
+
+        <p>
+          {{#if submit.isIdle}}
+            <button class="primary" disabled={{disableVerify}} {{action (perform submit)}}>Verify</button>
+          {{else}}
+            <button class="primary" disabled>Verifying...</button>
+          {{/if}}
+        </p>
+      {{/if}}
+    </form>
+  </div>
+</div>
+

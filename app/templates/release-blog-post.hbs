@@ -1,0 +1,89 @@
+<div class="narrow">
+  <h2>Release Blog Post</h2>
+
+  {{#if submit.last.isError}}
+    <p class="error">{{submit.last.error.message}}</p>
+  {{/if}}
+
+  {{#if submit.last.isSuccessful}}
+  	{{#with submit.last.value as |pr|}}
+      <p class="success">
+        <strong>Success!</strong>
+        Pull request
+        <a href="{{pr.html_url}}" target="_blank">#{{pr.number}}</a>
+        created.
+      </p>
+    {{/with}}
+  {{else}}
+    <div class="box">
+      <form>
+        <label>
+          Version
+          {{input value=version}}
+        </label>
+
+        <label>
+          Beta Version
+          {{input value=betaVersion}}
+        </label>
+
+        <label>
+          Previous Version
+          {{input value=previousVersion}}
+        </label>
+
+        <label>
+          Release Date
+          {{input value=releaseDate}}
+        </label>
+
+        <label>
+          Blog Post Title
+          {{input value=title}}
+        </label>
+
+        <label>
+          Blog Post Authors
+          {{input value=authors}}
+        </label>
+
+        <label>
+          Pull Request Title
+          {{input value=pullRequestTitle}}
+        </label>
+
+        <label>
+          Branch name
+          {{input value=branch}}
+        </label>
+
+        <label>
+          Ember.js Sign Off
+          {{input value=emberjsSignOff}}
+        </label>
+
+        <label>
+          Ember Data Sign Off
+          {{input value=emberDataSignOff}}
+        </label>
+
+        <label>
+          Ember CLI Sign Off
+          {{input value=emberCLISignOff}}
+        </label>
+
+        <label>
+          Website Sign Off
+          {{input value=websiteSignOff}}
+        </label>
+
+        {{#if submit.isIdle}}
+          <button class="primary" disabled={{disableSignIn}} {{action (perform submit)}}>Submit</button>
+        {{else}}
+          <button class="primary" disabled>Submitting...</button>
+        {{/if}}
+      </form>
+    </div>
+  {{/if}}
+</div>
+
