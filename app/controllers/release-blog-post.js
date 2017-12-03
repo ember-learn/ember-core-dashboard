@@ -217,9 +217,9 @@ and [addons](https://github.com/ember-cli/ember-addon-output/compare/v${previous
 
 ### Changes in Ember CLI ${version}
 
-#### Deprecations in Ember Data ${version}
+#### Deprecations in Ember CLI ${version}
 
-Two new deprecations are introduces in Ember Data ${version}:
+Two new deprecations are introduces in Ember CLI ${version}:
 
 * TODO
 * TODO
