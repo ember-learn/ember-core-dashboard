@@ -136,7 +136,7 @@ Consider using the
 addon if you would like to upgrade your application without immediately addressing
 deprecations.
 
-Two new deprecations are introduces in Ember.js ${version}:
+Two new deprecations are introduced in Ember.js ${version}:
 
 * TODO
 * TODO
